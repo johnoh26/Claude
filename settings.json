@@ -2,7 +2,7 @@
   "statusLine": {
     "type": "command",
     "command": "bash /home/johnoh26/.claude/statusline-command.sh"
-  }
+  },
 "permissions": {
     "allow": [
       "Read",
