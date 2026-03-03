@@ -1,0 +1,31 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/johnoh26/.claude/statusline-command.sh"
+  }
+"permissions": {
+    "allow": [
+      "Read",
+      "Read(*.ts)", 
+      "Read(src/**)",
+      "Edit(src/**)",
+      "Edit(tests/**)",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(pnpm *)",
+      "Bash(yarn *)",
+      "Bash(npm run test)"
+    ],
+   "deny": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(sudo *)",
+      "Bash(curl * | bash)",
+      "Read(.env*)",
+      "Read(**/secrets*)",
+      "Write(.env*)",
+      "Write(production*)"
+    ],
+    "defaultMode": "plan"
+  }
+}
