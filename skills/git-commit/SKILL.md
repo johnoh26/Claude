@@ -70,7 +70,13 @@ Do NOT add the `Co-Authored-By` trailer unless the user asks.
 ## Step 7: Commit
 Run: `git commit -m "<generated message>"`
 
+## Step 8: Push
+Run: `git push`
+
+If the branch has no upstream yet, run: `git push -u origin <branch>`
+
 Report back:
 - Commit hash (short)
 - Commit message used
 - Files changed summary
+- Push result (remote URL and branch)
