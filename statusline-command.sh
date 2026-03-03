@@ -7,7 +7,7 @@ input=$(cat)
 cwd=$(node -e "const d=JSON.parse(process.argv[1]); process.stdout.write(d.cwd||d.workspace?.current_dir||'')" "$input" 2>/dev/null)
 model=$(node -e "const d=JSON.parse(process.argv[1]); process.stdout.write(d.model?.display_name||'')" "$input" 2>/dev/null)
 used_pct=$(node -e "const d=JSON.parse(process.argv[1]); process.stdout.write(String(d.context_window?.used_percentage??''))" "$input" 2>/dev/null)
-input_tokens=$(node -e "const d=JSON.parse(process.argv[1]); const t=d.context_window?.current_usage?.input_tokens; const pct=d.context_window?.used_percentage; const sz=d.context_window?.context_window_size; const val=t!=null&&t>0?t:(pct!=null&&sz!=null?Math.round(pct/100*sz):null); process.stdout.write(val!=null?String(val):'')" "$input" 2>/dev/null)
+input_tokens=$(node -e "const d=JSON.parse(process.argv[1]); const u=d.context_window?.current_usage; const val=u!=null?(u.input_tokens||0)+(u.output_tokens||0)+(u.cache_creation_input_tokens||0)+(u.cache_read_input_tokens||0):null; process.stdout.write(val!=null?String(val):'')" "$input" 2>/dev/null)
 ctx_size=$(node -e "const d=JSON.parse(process.argv[1]); const s=d.context_window?.context_window_size; process.stdout.write(s!=null?String(s):'')" "$input" 2>/dev/null)
 
 home_dir="$HOME"
